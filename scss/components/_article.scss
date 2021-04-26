@@ -1,0 +1,8 @@
+.article
+{
+    width: 90%;
+    height: 300px;
+    background-color: $tertiary-color;
+    margin-top: 20px;
+    @include pageMargin;
+}

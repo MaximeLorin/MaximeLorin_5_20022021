@@ -1,13 +1,26 @@
 @font-face {
-    font-family: 'Roboto', 'Shrikhand';
-    src: url("./assets/fonts/Roboto-Thin") format("truetype"), url("font/Roboto-Thin") format("truetype");    
+    font-family: 'ArchitectsDaughter-Regular';
+    src: url("./assets/fonts/ArchitectsDaughter-Regular.ttf") format("truetype"), url("fonts/ArchitectsDaughter-Regular") format("truetype");    
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand-VariableFont_wght';
+    src: url("./assets/fonts/Quicksand-VariableFont_wght.ttf") format("truetype"), url("fonts/Quicksand-VariableFont_wght") format("truetype");    
+    font-weight: normal;
+    font-style: normal;
+}
+
+body 
+{
+    font-family: "Quicksand-VariableFont_wght", sans-serif;
 }
 
 h1
 {
     font-size: $title-size;
+    font-family: "ArchitectsDaughter-Regular", sans-serif;
 }
 
 h2

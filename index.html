@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>Titre</title>
+        <title>Orinoco | Acceuil</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <meta name="description" content="Entrer metaDescription">
+        <meta name="description" content="Orinoco le spécialiste de la photographie vintage, venez acheter un appareil photo d'époque !">
         <meta charset= "utf-8" />
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/4c2d4e0893.js" crossorigin="anonymous"></script>
@@ -11,10 +11,24 @@
     <body>
         <div class= "gridContainer">
             <header class="head">
-                <h1 class= "mainTitle"></h1>
+                <a class="blockTitle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h1 class= "mainTitle">Orinoco</h1>
+                </a>
+                <a class= "toBasket"><i class="fas fa-shopping-basket"></i></a>
             </header>
+            <main class= "content">
+                <div class= "article">
+                    <img id="article__img">
+                    <h2 id= "article__price"></h2>
+                    <p id= "article__descrptn"></p>
+                </div>
+            </main>
             <footer class= "foot">
+                <p class= "copyright">@Maxime Lorin 2021</p>
             </footer>
         </div>
+
+        <script src="index.js"></script>
     </body>
 </html>

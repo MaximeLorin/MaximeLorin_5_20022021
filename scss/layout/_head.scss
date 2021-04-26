@@ -1,0 +1,26 @@
+.head
+{
+    background-color: $tertiary-color;
+    display: flex;
+    justify-content: space-between;
+    .blockTitle
+    {
+        margin-left: 20px;
+        @include itemCenter;
+        i 
+        {
+            color: $primary-color;
+            font-size: 1.9rem;
+        }
+        h1 
+        {
+            color: $secondary-color;
+        }
+    }
+    .toBasket{
+        color: $secondary-color;
+        margin-right: 20px;
+        @include itemCenter;
+        font-size: 1.6rem;
+    }
+}

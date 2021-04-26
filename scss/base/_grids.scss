@@ -2,9 +2,10 @@
 {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1px;
+    grid-template-rows: 80px 1500px 150px;
     grid-template-areas:
-    "xxx"
-    "xxx"
+    "head"
+    "content"
+    "foot"
     ;
 }
