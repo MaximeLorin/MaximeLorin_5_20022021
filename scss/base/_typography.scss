@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Roboto', 'Shrikhand';
+    src: url("./assets/fonts/Roboto-Thin") format("truetype"), url("font/Roboto-Thin") format("truetype");    
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1
+{
+    font-size: $title-size;
+}
+
+h2
+{
+    font-size: $secTitle-size;
+}
+
+h3
+{
+    font-size: $tiercTitle-size;
+}
+ 
+p
+{
+    font-size: $paragraph-size;
+}
+
+a
+{
+    text-decoration: none;
+    color: inherit;
+}

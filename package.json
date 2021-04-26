@@ -1,0 +1,11 @@
+{
+  "name": "blank-sass",
+  "version": "1.0.0",
+  "description": "Boilerplate SASS",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./scss/main.scss:style.css --style compressed"
+  },
+  "author": "Maxime Lorin",
+  "license": "ISC"
+}
