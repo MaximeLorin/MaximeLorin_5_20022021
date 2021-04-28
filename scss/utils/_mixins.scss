@@ -16,9 +16,9 @@
     margin-left: 5%;
     margin-right:5%;
 }
-@mixin titleMargin {
-    margin-top: 40px;
-    margin-bottom: 40px;
+@mixin textMargin {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 @mixin desktopMargin {
     width: 50%;
