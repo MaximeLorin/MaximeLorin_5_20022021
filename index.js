@@ -1,3 +1,5 @@
+let article= document.getElementById("article");
+
 class objArticle{
     constructor(description,imageUrl,Lenses,name,price,_id){
         this.Lenses= [];
@@ -13,9 +15,10 @@ getElements();
 
 function createArticles()
 {
-    const newArticle =document.createElement("div");
+    const newArticle= document.createElement("a");
     newArticle.id= "article";
     newArticle.classList.add("article");
+    newArticle.href= "/produit.html"+":"+objArticle._id;
     
     const newImage= document.createElement("img");
     newImage.classList.add("article__img");

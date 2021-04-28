@@ -1,0 +1,8 @@
+.product
+{
+    background-color: $tertiary-color;
+    width: 90%;
+    height: 650px;
+    margin-top: 5%;
+    @include pageMargin;
+}

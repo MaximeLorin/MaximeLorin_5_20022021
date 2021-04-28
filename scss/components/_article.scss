@@ -1,5 +1,6 @@
 .article
 {
+    display: block;
     width: 90%;
     height: 400px;
     background-color: $tertiary-color;
@@ -25,5 +26,9 @@
     {
         @include pageMargin;
         @include textMargin;
+    }
+    &:hover
+    {
+        cursor: pointer;
     }
 }
