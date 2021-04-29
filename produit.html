@@ -9,7 +9,7 @@
         <script src="https://kit.fontawesome.com/4c2d4e0893.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class= "gridContainer">
+        <div class= "gridContainerProducts">
             <header class="head">
                 <a class="blockTitle" href= "/index.html">
                     <i class="fas fa-shopping-cart"></i>
@@ -22,7 +22,15 @@
                     <img id="product__img" class="product__img">
                     <h2 id="product__price" class="product__price"></h2>
                     <h3 id="product__name" class="product__name"></h3>
+                    <label id="product__choose" for="lense-options">Choisissez un objectif:</label>
+                    <select name="options" id="product__select" class="product__select">
+                        <option value="">Choisissez ici</option>
+                    </select>
                     <p id="product__description" class="product__description"></p>
+                    <div class= "product__container">
+                        <input class="product__container__button--add" type="button" value="Ajouter au panier">
+                        <input class="product__container__button--buy" type="button" value="Acheter">
+                    </div>
                 </div>
             </main>
             <footer class= "foot">
@@ -30,6 +38,6 @@
             </footer>
         </div>
 
-        <script src="index.js"></script>
+        <script src="product.js"></script>
     </body>
 </html>

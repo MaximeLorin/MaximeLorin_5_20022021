@@ -18,7 +18,7 @@ function createArticles()
     const newArticle= document.createElement("a");
     newArticle.id= "article";
     newArticle.classList.add("article");
-    newArticle.href= "/produit.html"+":"+objArticle._id;
+    newArticle.href= "/produit.html"+"?id="+objArticle._id;
     
     const newImage= document.createElement("img");
     newImage.classList.add("article__img");

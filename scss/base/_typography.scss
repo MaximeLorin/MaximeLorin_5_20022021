@@ -43,3 +43,23 @@ a
     text-decoration: none;
     color: inherit;
 }
+
+input 
+{
+    font-family: "Quicksand-VariableFont_wght", sans-serif;
+    font-size: $paragraph-size;
+    font-style: normal;
+}
+
+label
+{
+    font-family: "Quicksand-VariableFont_wght", sans-serif;
+    font-size: $paragraph-size;
+    font-style: normal;
+}
+
+option
+{
+    font-family: "Quicksand-VariableFont_wght", sans-serif;
+    font-style: normal;
+}

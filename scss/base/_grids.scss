@@ -9,3 +9,15 @@
     "foot"
     ;
 }
+
+.gridContainerProducts
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 690px 80px;
+    grid-template-areas:
+    "head"
+    "content"
+    "foot"
+    ;
+}
