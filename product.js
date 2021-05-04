@@ -44,3 +44,5 @@ function getProduct(){
         })
         .catch(error => alert(error))
 } 
+ 
+

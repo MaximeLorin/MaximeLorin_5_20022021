@@ -47,6 +47,22 @@
         align-items: center;
         
     }
+    button 
+    {
+        &:hover
+        {
+            cursor: pointer;
+            transform: scale(1.03);
+            transition: 0.5s;
+        }
+        &:active
+        {
+            transform: scale(0.97);
+            color:darken($tertiary-color, $amount:10);
+            background-color: darken($tertiary-color, $amount:55);
+            transition: 0.1s;
+        }
+    }
     &__container__button--add
     {
         width: 150px;
