@@ -1,17 +1,30 @@
 const buttonBasket= document.getElementById("product__container__button--add");
+const numberBasket= document.getElementById("basketNumber");
+
+let retrieveProduct= JSON.parse(localStorage.getItem("panier"));
 
 let arrayProduct=[];
-//console.log(arrayProduct);
+localStorage.setItem("panier", JSON.stringify(arrayProduct));
+
+
+
+console.log(retrieveProduct);
+if (arrayProduct.length ===0){
+    arrayProduct=retrieveProduct;
+}
+
+
 
 buttonBasket.addEventListener("click",() => {
     addBasket();
 });
 
 function addBasket(){
-    
     arrayProduct.push(checkUrl());
-    console.log(arrayProduct);
-
+    localStorage.setItem("panier", JSON.stringify(arrayProduct));
+    
+    numberBasket.textContent=retrieveProduct.length;
+    //console.log(arrayProduct);
 }
 
 function checkUrl(){
