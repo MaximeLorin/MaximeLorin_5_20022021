@@ -1,5 +1,4 @@
 getProduct();
-let product={};
 
 function checkUrl(){
     let currentId= new URLSearchParams(window.location.search);
@@ -10,7 +9,7 @@ function checkUrl(){
     }
 }
 
-function createProduct(){
+function createProduct(product){
     image= document.getElementById("product__img");
     image.src= product.imageUrl;
 
@@ -37,8 +36,7 @@ function createProduct(){
 function getProduct(){
     fetch ("http://localhost:3000/api/cameras/"+checkUrl())
         .then(response =>response.json())
-        .then(data =>{
-            product= data;
+        .then(product =>{
             createProduct(product);
             //console.log(product);
         })
