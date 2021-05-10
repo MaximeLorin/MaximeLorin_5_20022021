@@ -1,44 +1,31 @@
-let article= document.getElementById("article");
-
-class objArticle{
-    constructor(description,imageUrl,Lenses,name,price,_id){
-        this.Lenses= [];
-        this._id=_id;
-        this.name=name;
-        this.description=description;
-        this.price=0;
-        this.imageUrl=imageUrl;
-    }
-}
-
 getElements();
 
-function createArticles()
+function createArticles(article)
 {
     const newArticle= document.createElement("a");
     newArticle.id= "article";
     newArticle.classList.add("article");
-    newArticle.href= "/produit.html"+"?id="+objArticle._id;
+    newArticle.href= "/produit.html"+"?id="+article._id;
     
     const newImage= document.createElement("img");
     newImage.classList.add("article__img");
     newImage.id= "article__img";
-    newImage.src= objArticle.imageUrl;
+    newImage.src= article.imageUrl;
 
     const newPrice= document.createElement("h2");
     newPrice.classList.add("article__price");
     newPrice.id= "article__price";
-    newPrice.textContent = objArticle.price/100+" €";
+    newPrice.textContent = article.price/100+" €";
 
     const newName= document.createElement("h3");
     newName.classList.add("article__name");
     newName.id= "article__name";
-    newName.textContent=objArticle.name;
+    newName.textContent=article.name;
 
     const newDescription= document.createElement("p");
     newDescription.classList.add("article__descrptn");
     newDescription.id= "article__descrptn";
-    newDescription.textContent = objArticle.description;
+    newDescription.textContent = article.description;
 
     newArticle.append(newImage);
     newArticle.append(newPrice);
@@ -51,10 +38,10 @@ function createArticles()
 function getElements(){
     fetch ("http://localhost:3000/api/cameras")
         .then(response =>response.json())
-        .then(data =>{
-            for (let article in data){
-                objArticle=data[article];
-                createArticles();               
+        .then(articles =>{
+            for (let article in articles){
+                let art= articles[article];
+                createArticles(art);               
             }
         })
         .catch(error => alert(error))

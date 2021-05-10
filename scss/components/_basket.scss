@@ -12,5 +12,19 @@
         width: 20%;
         height: 100%;
     }
+    &__description
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 60%;
+    }
+    &__quantity
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 20%;
+    }
 
 }

@@ -4,18 +4,18 @@ const numberBasket= document.getElementById("basketNumber");
 let retrieveProduct= localStorage.getItem("panier");
 
 let arrayProduct=[];
-//console.log(retrieveProduct);
 
 if (retrieveProduct){
     arrayProduct=JSON.parse(retrieveProduct);
 }
 
 numberBasket.textContent=arrayProduct.length;
-//console.log(arrayProduct);
 
-buttonBasket.addEventListener("click",() => {
-    addBasket();
-});
+if (buttonBasket){
+    buttonBasket.addEventListener("click",() => {
+        addBasket();
+    });
+}
 
 if (retrieveProduct=== null && arrayProduct.length===0){
     numberBasket.style.visibility= "hidden";
@@ -40,8 +40,6 @@ function checkUrl(){
     }
 }
 
-
-
 function sortArray(basket){
     let numb=1;
     let basketPage=[];
@@ -49,15 +47,16 @@ function sortArray(basket){
     basketPage.push(art1);
     for (let product in basket){
         numb++;
-        console.log(art1);
+        //console.log(art1);
         if (basket[product]!= art1){
             basketPage.push(basket[product]);
-            console.log(basketPage)
         }
-    }    
+        
+    } 
+    return basketPage;   
 }
 
-function createBasket()
+function createBasket(basketArticle)
 {
     const newBasket= document.createElement("div");
     newBasket.id= "basket";
@@ -67,28 +66,66 @@ function createBasket()
     const newImage= document.createElement("img");
     newImage.classList.add("basket__img");
     newImage.id= "basket__img";
-    newImage.src= objArticle.imageUrl;
+    newImage.src= basketArticle.imageUrl;
 
     const newDescription= document.createElement("div");
     newDescription.classList.add("basket__description");
     newDescription.id= "basket__description";
-    newDescription.textContent = objArticle.description;
 
     const newPrice= document.createElement("h2");
     newPrice.classList.add("basket__price");
     newPrice.id= "basket__price";
-    newPrice.textContent = objArticle.price/100+" €";
+    newPrice.textContent = basketArticle.price/100+" €";
 
     const newName= document.createElement("h3");
     newName.classList.add("basket__name");
     newName.id= "basket__name";
-    newName.textContent=objArticle.name;
+    newName.textContent=basketArticle.name;
 
-    newArticle.append(newImage);
-    newArticle.append(newPrice);
-    newArticle.append(newName);
-    newArticle.append(newDescription);
+    const newQuantity= document.createElement("div");
+    newQuantity.classList.add("basket__quantity");
+    newQuantity.id= "basket__quantity";
+
+    const newQuantityPlus= document.createElement("button");
+    newQuantityPlus.classList.add("basket__quantity--plus");
+    newQuantityPlus.id= "basket__quantity--plus";
+
+    const newQuantityMinus= document.createElement("button");
+    newQuantityMinus.classList.add("basket__quantity--minus");
+    newQuantityMinus.id= "basket__quantity--minus";
+
+    const newQuantityNumber= document.createElement("p");
+    newQuantityNumber.classList.add("basket__quantity--number");
+    newQuantityNumber.id= "basket__quantity--number";
+
+    newBasket.append(newImage);
+    newBasket.append(newPrice);
+    
+    newBasket.append(newDescription);
+    newDescription.append(newName);
+    newDescription.append(newPrice);
+
+    newBasket.append(newQuantity);
+    newQuantity.append(newQuantityPlus);
+    newQuantity.append(newQuantityNumber);
+    newQuantity.append(newQuantityMinus);
+    
     
     document.getElementById("content").appendChild(newBasket);
 }
 
+
+let actUrl= window.location.href;
+
+if (actUrl === "http://127.0.0.1:5500/panier.html"){
+    let sortArticles= sortArray(arrayProduct);
+    console.log(sortArticles);
+    for (article in sortArticles){
+        fetch ("http://localhost:3000/api/cameras/"+sortArticles[article])
+        .then(response =>response.json())
+        .then(product =>{
+            createBasket(product)
+        })
+        .catch(error => alert(error))
+    }
+}

@@ -25,9 +25,7 @@ function createProduct(product){
     let lenseTab= product.lenses;
     
     for (let lense in lenseTab){
-        //console.log(lense)
         const newOption= document.createElement("option");
-        //console.log(newOption);
         newOption.textContent= lenseTab[lense];
         document.getElementById("product__select").appendChild(newOption)
     }
@@ -38,7 +36,6 @@ function getProduct(){
         .then(response =>response.json())
         .then(product =>{
             createProduct(product);
-            //console.log(product);
         })
         .catch(error => alert(error))
 } 
