@@ -41,18 +41,26 @@ function checkUrl(){
 }
 
 function sortArray(basket){
-    let numb=1;
+    basket.sort();
     let basketPage=[];
+    let numb= 0;
+    let numbProducts=[];
     let art1=basket[0];
     basketPage.push(art1);
+    console.log(arrayProduct);
     for (let product in basket){
         numb++;
-        //console.log(art1);
+
+        console.log(numbProducts);
         if (basket[product]!= art1){
+            numbProducts.push(numb-1);
+
             basketPage.push(basket[product]);
+            art1=basket[product];
+            numb=1;
         }
-        
-    } 
+    }
+    
     return basketPage;   
 }
 
