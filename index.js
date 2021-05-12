@@ -44,7 +44,7 @@ function getElements(){
                 createArticles(art);               
             }
         })
-        .catch(error => alert(error))
+        .catch(()=> document.location.href="/404.html")
 } 
 
 

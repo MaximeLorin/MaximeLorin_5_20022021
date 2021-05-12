@@ -26,5 +26,49 @@
         justify-content: space-around;
         width: 20%;
     }
+    .basket__quantity--plus
+    {
+        width: 20px;
+        height: 20px;
+        font-weight: bold;
+        color:darken($tertiary-color, $amount:55);
+        background-color: darken($tertiary-color, $amount:10);
+        border: none;
+        &:hover
+        {
+            cursor: pointer;
+            transform: scale(1.03);
+            transition: 0.5s;
+        }
+        &:active
+        {
+            transform: scale(0.97);
+            color:darken($tertiary-color, $amount:10);
+            background-color: darken($tertiary-color, $amount:55);
+            transition: 0.1s;
+        }
+    }
+    .basket__quantity--minus
+    {
+        width: 20px;
+        height: 20px;
+        font-weight: bold;
+        color:darken($tertiary-color, $amount:55);
+        background-color: darken($tertiary-color, $amount:10);
+        border: none;
+        &:hover
+        {
+            cursor: pointer;
+            transform: scale(1.03);
+            transition: 0.5s;
+        }
+        &:active
+        {
+            transform: scale(0.97);
+            color:darken($tertiary-color, $amount:10);
+            background-color: darken($tertiary-color, $amount:55);
+            transition: 0.1s;
+        }
+    }
 
 }

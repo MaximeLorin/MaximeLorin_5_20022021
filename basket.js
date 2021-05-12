@@ -1,6 +1,13 @@
 const buttonBasket= document.getElementById("product__container__button--add");
 const numberBasket= document.getElementById("basketNumber");
 
+const buttonForm= document.getElementById("form__button");
+const firstName= document.getElementById("form__firstName");
+const lastName= document.getElementById("form__lastName");
+const adress= document.getElementById("form__adress");
+const city= document.getElementById("form__city");
+const email= document.getElementById("form__email");
+
 let retrieveProduct= localStorage.getItem("panier");
 
 let arrayProduct=[];
@@ -97,10 +104,12 @@ function createBasket(basketArticle)
     const newQuantityPlus= document.createElement("button");
     newQuantityPlus.classList.add("basket__quantity--plus");
     newQuantityPlus.id= "basket__quantity--plus";
+    newQuantityPlus.textContent= "+";
 
     const newQuantityMinus= document.createElement("button");
     newQuantityMinus.classList.add("basket__quantity--minus");
     newQuantityMinus.id= "basket__quantity--minus";
+    newQuantityMinus.textContent= "-";
 
     const newQuantityNumber= document.createElement("p");
     newQuantityNumber.classList.add("basket__quantity--number");
@@ -134,6 +143,30 @@ if (actUrl === "http://127.0.0.1:5500/panier.html"){
         .then(product =>{
             createBasket(product)
         })
-        .catch(error => alert(error))
+        .catch(()=> document.location.href="/404.html")
     }
 }
+
+let toPost={
+    contact:{
+        firstName:"str",
+        lastName:"str",
+        address:"adress.value",
+        city:"city.value",
+        email:"email.value",
+    },
+    products: sortArray(arrayProduct)
+};
+
+
+buttonForm.addEventListener("click",() => {
+
+    fetch ("http://localhost:3000/api/cameras/order",{method:"post",
+     body:JSON.stringify(toPost),
+     headers:{"Content-Type":"application/json"}})
+        .then(order =>order.json())
+        .then(data =>{
+            console.log(data);
+        })
+        .catch(()=> document.location.href="/404.html")
+});

@@ -37,7 +37,7 @@ function getProduct(){
         .then(product =>{
             createProduct(product);
         })
-        .catch(error => alert(error))
+        .catch(()=> document.location.href="/404.html")
 } 
  
 

@@ -4,8 +4,12 @@
   "description": "Boilerplate SASS",
   "main": "index.js",
   "scripts": {
+    "test":"jest",
     "sass": "sass --watch ./scss/main.scss:style.css --style compressed"
   },
   "author": "Maxime Lorin",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
 }
