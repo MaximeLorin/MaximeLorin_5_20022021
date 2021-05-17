@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Orinoco | Commande validée</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="description" content="Orinoco le spécialiste de la photographie vintage, venez acheter un appareil photo d'époque !">
+        <meta charset= "utf-8" />
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/4c2d4e0893.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class= "gridContainer">
+            <header class="head">
+                <a class="blockTitle" href= "/index.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h1 class= "mainTitle">Orinoco</h1>
+                </a>
+                <a class= "toBasket" href="/panier.html"><span id="basketNumber"></span><i class="fas fa-shopping-basket"></i></a>
+            </header>
+            <main id= "content" class= "content">
+                <p id="order">Votre commande <span id="order__id">0</span> pour un total de <span id="order_price"></span> a bien été validée !</p>
+            </main>
+            <footer class= "foot">
+                <p class= "copyright">@Maxime Lorin 2021</p>
+            </footer>
+        </div>
+        <script src="basket.js"></script>
+        <script src="validation.js"></script>
+    </body>
+</html>
