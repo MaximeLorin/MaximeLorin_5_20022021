@@ -1,74 +1,63 @@
-.basket
-{
-    background-color: $tertiary-color;
-    width: 90%;
-    height: 100px;
-    margin-top: 5%;
+#basket {
+  background-color: $tertiary-color;
+  width: 90%;
+  height: 100px;
+  margin-top: 5%;
+  display: flex;
+  @include pageMargin;
+  &__img {
+    object-fit: cover;
+    width: 20%;
+    height: 100%;
+  }
+  &__description {
     display: flex;
-    @include pageMargin;
-    &__img
-    {
-        object-fit: cover;
-        width: 20%;
-        height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+  }
+  &__quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 20%;
+  }
+  .basket__quantity--plus {
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
+    color: darken($tertiary-color, $amount: 55);
+    background-color: darken($tertiary-color, $amount: 10);
+    border: none;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.03);
+      transition: 0.5s;
     }
-    &__description
-    {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 60%;
+    &:active {
+      transform: scale(0.97);
+      color: darken($tertiary-color, $amount: 10);
+      background-color: darken($tertiary-color, $amount: 55);
+      transition: 0.1s;
     }
-    &__quantity
-    {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 20%;
+  }
+  .basket__quantity--minus {
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
+    color: darken($tertiary-color, $amount: 55);
+    background-color: darken($tertiary-color, $amount: 10);
+    border: none;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.03);
+      transition: 0.5s;
     }
-    .basket__quantity--plus
-    {
-        width: 20px;
-        height: 20px;
-        font-weight: bold;
-        color:darken($tertiary-color, $amount:55);
-        background-color: darken($tertiary-color, $amount:10);
-        border: none;
-        &:hover
-        {
-            cursor: pointer;
-            transform: scale(1.03);
-            transition: 0.5s;
-        }
-        &:active
-        {
-            transform: scale(0.97);
-            color:darken($tertiary-color, $amount:10);
-            background-color: darken($tertiary-color, $amount:55);
-            transition: 0.1s;
-        }
+    &:active {
+      transform: scale(0.97);
+      color: darken($tertiary-color, $amount: 10);
+      background-color: darken($tertiary-color, $amount: 55);
+      transition: 0.1s;
     }
-    .basket__quantity--minus
-    {
-        width: 20px;
-        height: 20px;
-        font-weight: bold;
-        color:darken($tertiary-color, $amount:55);
-        background-color: darken($tertiary-color, $amount:10);
-        border: none;
-        &:hover
-        {
-            cursor: pointer;
-            transform: scale(1.03);
-            transition: 0.5s;
-        }
-        &:active
-        {
-            transform: scale(0.97);
-            color:darken($tertiary-color, $amount:10);
-            background-color: darken($tertiary-color, $amount:55);
-            transition: 0.1s;
-        }
-    }
-
+  }
 }

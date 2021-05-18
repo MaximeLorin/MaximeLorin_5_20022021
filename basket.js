@@ -11,18 +11,18 @@ let email = document.getElementById("form__email");
 
 //---------
 let retrieveProduct = localStorage.getItem("panier");
-
+console.log(retrieveProduct);
 let arrayProduct = [];
 
 if (retrieveProduct) {
   arrayProduct = JSON.parse(retrieveProduct);
 }
-
+console.log(arrayProduct);
 numberBasket.textContent = arrayProduct.length;
 
 if (buttonBasket) {
   buttonBasket.addEventListener("click", () => {
-    addBasket();
+    addBasket(checkId());
   });
 }
 
@@ -30,8 +30,8 @@ if (retrieveProduct === null && arrayProduct.length === 0) {
   numberBasket.style.visibility = "hidden";
 }
 
-function addBasket() {
-  arrayProduct.push(checkUrl());
+function addBasket(id) {
+  arrayProduct.push(id);
   localStorage.setItem("panier", JSON.stringify(arrayProduct));
   if (arrayProduct.length != 0) {
     numberBasket.style.visibility = "visible";
@@ -39,7 +39,16 @@ function addBasket() {
   numberBasket.textContent = arrayProduct.length;
 }
 
-function checkUrl() {
+function removeBasket(basket, id) {
+  let index = basket.indexOf(id);
+  if (index > -1) {
+    basket.splice(index, 1);
+  }
+  localStorage.setItem("panier", JSON.stringify(basket));
+  return basket;
+}
+
+function checkId() {
   let currentId = new URLSearchParams(window.location.search);
 
   if (currentId.has("id")) {
@@ -71,13 +80,12 @@ arrayProduct.forEach((prod) => {
 });
 
 let quantityProduct = Object.values(numbProducts);
-console.log(quantityProduct);
 //-----
 
-function createBasket(basketArticle) {
+function createBasket(basketArticle, number) {
   const newBasket = document.createElement("div");
   newBasket.id = "basket";
-  newBasket.classList.add("basket");
+  newBasket.classList.add(basketArticle._id);
 
   const newImage = document.createElement("img");
   newImage.classList.add("basket__img");
@@ -107,14 +115,22 @@ function createBasket(basketArticle) {
   newQuantityPlus.id = "basket__quantity--plus";
   newQuantityPlus.textContent = "+";
 
+  newQuantityPlus.addEventListener("click", () => addBasket(basketArticle._id));
+
   const newQuantityMinus = document.createElement("button");
+
   newQuantityMinus.classList.add("basket__quantity--minus");
   newQuantityMinus.id = "basket__quantity--minus";
   newQuantityMinus.textContent = "-";
 
+  newQuantityMinus.addEventListener("click", () =>
+    removeBasket(arrayProduct, basketArticle._id)
+  );
+
   const newQuantityNumber = document.createElement("p");
   newQuantityNumber.classList.add("basket__quantity--number");
   newQuantityNumber.id = "basket__quantity--number";
+  newQuantityNumber.textContent = number;
 
   newBasket.append(newImage);
   newBasket.append(newPrice);
@@ -133,16 +149,23 @@ function createBasket(basketArticle) {
 
 let actUrl = window.location.href;
 
-if (actUrl === "http://127.0.0.1:5500/panier.html") {
+if (actUrl === "http://127.0.0.1:5500/panier.html" && arrayProduct.length > 0) {
   let sortArticles = sortArray(arrayProduct);
   //console.log(sortArticles);
   for (article in sortArticles) {
+    let indiNumber = quantityProduct[article];
     fetch("http://localhost:3000/api/cameras/" + sortArticles[article])
-      .then((response) => response.json())
-      .then((product) => {
-        createBasket(product);
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error();
+        }
       })
-      .catch(() => (document.location.href = "/404.html"));
+      .then((product) => {
+        createBasket(product, indiNumber);
+      })
+      .catch((err) => (document.location.href = "/404.html"));
   }
 }
 
@@ -165,7 +188,8 @@ buttonForm.addEventListener("click", (e) => {
     lastName.value &&
     adress.value &&
     city.value &&
-    email.value
+    email.value &&
+    arrayProduct.length > 0
   ) {
     fetch("http://localhost:3000/api/cameras/order", {
       method: "post",
