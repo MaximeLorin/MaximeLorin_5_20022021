@@ -1,0 +1,9 @@
+#total {
+  background-color: $tertiary-color;
+  width: 90%;
+  height: 100px;
+  margin-top: 5%;
+  display: flex;
+  @include itemCenter;
+  @include pageMargin;
+}

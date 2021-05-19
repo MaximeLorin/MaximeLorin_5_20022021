@@ -9,6 +9,9 @@ let adress = document.getElementById("form__adress");
 let city = document.getElementById("form__city");
 let email = document.getElementById("form__email");
 
+let priceArticles = 0;
+const totalPrice = document.getElementById("total__price");
+
 //---------
 let retrieveProduct = localStorage.getItem("panier");
 console.log(retrieveProduct);
@@ -115,7 +118,13 @@ function createBasket(basketArticle, number) {
   newQuantityPlus.id = "basket__quantity--plus";
   newQuantityPlus.textContent = "+";
 
-  newQuantityPlus.addEventListener("click", () => addBasket(basketArticle._id));
+  newQuantityPlus.addEventListener("click", () => {
+    addBasket(basketArticle._id);
+    newQuantityNumber.textContent++;
+    priceArticles = priceArticles + basketArticle.price / 100;
+    localStorage.setItem("total", priceArticles);
+    totalPrice.textContent = priceArticles + " €";
+  });
 
   const newQuantityMinus = document.createElement("button");
 
@@ -123,14 +132,27 @@ function createBasket(basketArticle, number) {
   newQuantityMinus.id = "basket__quantity--minus";
   newQuantityMinus.textContent = "-";
 
-  newQuantityMinus.addEventListener("click", () =>
-    removeBasket(arrayProduct, basketArticle._id)
-  );
+  newQuantityMinus.addEventListener("click", () => {
+    removeBasket(arrayProduct, basketArticle._id);
+    newQuantityNumber.textContent--;
+    number--;
+    priceArticles = priceArticles - basketArticle.price / 100;
+    totalPrice.textContent = priceArticles + " €";
+    localStorage.setItem("total", priceArticles);
+    if (number < 1) {
+      document.location.reload();
+    }
+  });
 
   const newQuantityNumber = document.createElement("p");
   newQuantityNumber.classList.add("basket__quantity--number");
   newQuantityNumber.id = "basket__quantity--number";
   newQuantityNumber.textContent = number;
+
+  let calcul = (newQuantityNumber.textContent * basketArticle.price) / 100;
+  priceArticles = calcul + priceArticles;
+  totalPrice.textContent = priceArticles + " €";
+  localStorage.setItem("total", priceArticles);
 
   newBasket.append(newImage);
   newBasket.append(newPrice);
@@ -144,14 +166,13 @@ function createBasket(basketArticle, number) {
   newQuantity.append(newQuantityNumber);
   newQuantity.append(newQuantityMinus);
 
-  document.getElementById("content").appendChild(newBasket);
+  document.getElementById("basketContainer").appendChild(newBasket);
 }
 
 let actUrl = window.location.href;
 
 if (actUrl === "http://127.0.0.1:5500/panier.html" && arrayProduct.length > 0) {
   let sortArticles = sortArray(arrayProduct);
-  //console.log(sortArticles);
   for (article in sortArticles) {
     let indiNumber = quantityProduct[article];
     fetch("http://localhost:3000/api/cameras/" + sortArticles[article])
