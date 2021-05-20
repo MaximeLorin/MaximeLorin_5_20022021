@@ -191,38 +191,39 @@ if (actUrl === "http://127.0.0.1:5500/panier.html" && arrayProduct.length > 0) {
 }
 
 //------
+if (buttonForm) {
+  buttonForm.addEventListener("click", (e) => {
+    let toPost = {
+      contact: {
+        firstName: firstName.value,
+        lastName: lastName.value,
+        address: adress.value,
+        city: city.value,
+        email: email.value,
+      },
+      products: sortArray(arrayProduct),
+    };
 
-buttonForm.addEventListener("click", (e) => {
-  let toPost = {
-    contact: {
-      firstName: firstName.value,
-      lastName: lastName.value,
-      address: adress.value,
-      city: city.value,
-      email: email.value,
-    },
-    products: sortArray(arrayProduct),
-  };
-
-  if (
-    firstName.value &&
-    lastName.value &&
-    adress.value &&
-    city.value &&
-    email.value &&
-    arrayProduct.length > 0
-  ) {
-    fetch("http://localhost:3000/api/cameras/order", {
-      method: "post",
-      body: JSON.stringify(toPost),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((order) => order.json())
-      .then((data) => {
-        localStorage.setItem("commande", JSON.stringify(data));
-        localStorage.setItem("id commande", JSON.stringify(data.orderId));
-        window.location.href = "/commande-validee.html";
+    if (
+      firstName.value &&
+      lastName.value &&
+      adress.value &&
+      city.value &&
+      email.value &&
+      arrayProduct.length > 0
+    ) {
+      fetch("http://localhost:3000/api/cameras/order", {
+        method: "post",
+        body: JSON.stringify(toPost),
+        headers: { "Content-Type": "application/json" },
       })
-      .catch(() => (document.location.href = "/404.html"));
-  }
-});
+        .then((order) => order.json())
+        .then((data) => {
+          localStorage.setItem("commande", JSON.stringify(data));
+          localStorage.setItem("id commande", JSON.stringify(data.orderId));
+          window.location.href = "/commande-validee.html";
+        })
+        .catch(() => (document.location.href = "/404.html"));
+    }
+  });
+}
