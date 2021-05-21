@@ -7,6 +7,7 @@
 
 @import "layout/head";
 @import "layout/foot";
+@import "layout/content";
 
 @import "components/article";
 @import "components/product";
@@ -14,3 +15,5 @@
 @import "components/basket";
 @import "components/form";
 @import "components/total";
+@import "components/orderValidate";
+@import "components/404";

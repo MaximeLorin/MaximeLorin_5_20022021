@@ -1,23 +1,35 @@
-.gridContainer
-{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 80px 2115px 80px;
-    grid-template-areas:
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 2115px 80px;
+  grid-template-areas:
     "head"
     "content"
-    "foot"
-    ;
+    "foot";
+  @include screen-desktop {
+    grid-template-rows: 80px 1200px 80px;
+  }
 }
 
-.gridContainerProducts
-{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 80px 690px 80px;
-    grid-template-areas:
+.gridContainerProducts {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 690px 80px;
+  grid-template-areas:
     "head"
     "content"
-    "foot"
-    ;
+    "foot";
+  @include screen-desktop {
+    grid-template-rows: 80px 920px 80px;
+  }
+}
+
+.gridContainerBasket {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1100px 80px;
+  grid-template-areas:
+    "head"
+    "content"
+    "foot";
 }

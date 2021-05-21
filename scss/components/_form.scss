@@ -1,43 +1,42 @@
-#form
-{
-    justify-content: center;
-    background-color: $tertiary-color;
-    @include pageMargin;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 5%;
-    height: 33%;
-    input 
-    {
-        color:darken($tertiary-color, $amount:55);
-        background-color: darken($tertiary-color, $amount:10);
-        border: none; 
-        margin: 5px;
-        width: 90%;
+#form {
+  justify-content: center;
+  background-color: $tertiary-color;
+  @include pageMargin;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5%;
+  height: 33%;
+  input {
+    color: darken($tertiary-color, $amount: 55);
+    background-color: darken($tertiary-color, $amount: 10);
+    border: none;
+    margin: 5px;
+    width: 90%;
+  }
+  button {
+    width: 75px;
+    height: 30px;
+    color: darken($tertiary-color, $amount: 55);
+    background-color: darken($tertiary-color, $amount: 10);
+    border: none;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.03);
+      transition: 0.5s;
     }
-    button 
-    {
-        
-        width: 75px;
-        height: 30px;
-        color:darken($tertiary-color, $amount:55);
-        background-color: darken($tertiary-color, $amount:10);
-        border: none;
-        &:hover
-        {
-            cursor: pointer;
-            transform: scale(1.03);
-            transition: 0.5s;
-        }
-        &:active
-        {
-            transform: scale(0.97);
-            color:darken($tertiary-color, $amount:10);
-            background-color: darken($tertiary-color, $amount:55);
-            transition: 0.1s;
-        }
+    &:active {
+      transform: scale(0.97);
+      color: darken($tertiary-color, $amount: 10);
+      background-color: darken($tertiary-color, $amount: 55);
+      transition: 0.1s;
     }
-
+  }
+  @include screen-desktop {
+    width: 100%;
+    margin-top: 1%;
+    input {
+      width: 50%;
+    }
+  }
 }
-

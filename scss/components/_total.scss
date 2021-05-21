@@ -6,4 +6,7 @@
   display: flex;
   @include itemCenter;
   @include pageMargin;
+  @include screen-desktop {
+    margin-top: 1%;
+  }
 }

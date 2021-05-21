@@ -60,4 +60,7 @@
       transition: 0.1s;
     }
   }
+  @include screen-desktop {
+    margin-top: 1%;
+  }
 }

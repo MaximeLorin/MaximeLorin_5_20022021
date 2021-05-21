@@ -1,4 +1,4 @@
-getProduct();
+getId();
 
 function checkUrl() {
   let currentId = new URLSearchParams(window.location.search);
@@ -31,7 +31,7 @@ function createProduct(product) {
   }
 }
 
-function getProduct() {
+function getId() {
   fetch("http://localhost:3000/api/cameras/" + checkUrl())
     .then((response) => {
       if (response.ok) {

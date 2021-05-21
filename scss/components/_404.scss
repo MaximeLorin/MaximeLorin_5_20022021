@@ -1,0 +1,6 @@
+.p404 {
+  height: 50%;
+  color: $secondary-color;
+  @include pageMargin;
+  @include itemCenter;
+}

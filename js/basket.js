@@ -14,13 +14,13 @@ const totalPrice = document.getElementById("total__price");
 
 //---------
 let retrieveProduct = localStorage.getItem("panier");
-console.log(retrieveProduct);
+
 let arrayProduct = [];
 
 if (retrieveProduct) {
   arrayProduct = JSON.parse(retrieveProduct);
 }
-console.log(arrayProduct);
+
 numberBasket.textContent = arrayProduct.length;
 
 if (buttonBasket) {
@@ -29,7 +29,7 @@ if (buttonBasket) {
   });
 }
 
-if (retrieveProduct === null && arrayProduct.length === 0) {
+if (arrayProduct.length < 1) {
   numberBasket.style.visibility = "hidden";
 }
 
@@ -135,6 +135,7 @@ function createBasket(basketArticle, number) {
   newQuantityMinus.addEventListener("click", () => {
     removeBasket(arrayProduct, basketArticle._id);
     newQuantityNumber.textContent--;
+    numberBasket.textContent = arrayProduct.length;
     number--;
     priceArticles = priceArticles - basketArticle.price / 100;
     totalPrice.textContent = priceArticles + " €";

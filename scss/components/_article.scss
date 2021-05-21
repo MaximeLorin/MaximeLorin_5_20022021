@@ -1,34 +1,35 @@
-.article
-{
-    display: block;
-    width: 90%;
-    height: 400px;
-    background-color: $tertiary-color;
-    margin-top: 5%;
+.article {
+  display: block;
+  width: 90%;
+  height: 400px;
+  background-color: $tertiary-color;
+  margin-top: 5%;
+  @include pageMargin;
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    height: 50%;
+  }
+  &__name {
     @include pageMargin;
-    &__img
-    {
-        object-fit: cover;
-        width: 100%;
-        height: 50%;
-    }
-    &__name
-    {
-        @include pageMargin;
-        @include textMargin;
-    }
-    &__price
-    {
-        @include pageMargin;
-        @include textMargin;
-    }
-    &__descrptn
-    {
-        @include pageMargin;
-        @include textMargin;
-    }
-    &:hover
-    {
-        cursor: pointer;
-    }
+    @include textMargin;
+  }
+  &__price {
+    @include pageMargin;
+    @include textMargin;
+  }
+  &__descrptn {
+    @include pageMargin;
+    @include textMargin;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  @include screen-desktop {
+    height: 350px;
+    width: 40%;
+    margin-top: 2%;
+    margin-right: none;
+    margin-left: none;
+  }
 }
