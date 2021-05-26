@@ -4,6 +4,9 @@
   height: 100px;
   margin-top: 5%;
   display: flex;
+  overflow: hidden;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   @include pageMargin;
   &__img {
     object-fit: cover;

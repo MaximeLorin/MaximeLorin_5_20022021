@@ -1,25 +1,25 @@
 /*Colors*/
 $primary-color: #e26d3f;
 $secondary-color: #6b4cc0;
-$tertiary-color: #f1def6;
+$tertiary-color: #e2e2e2;
 $footer-color: #353535;
 $restaurant-color: #f6f6f6;
-$restaurant-color-darken:darken(#f6f6f6,5%);
-$card-gradiant:linear-gradient($secondary-color, $primary-color);
+$restaurant-color-darken: darken(#f6f6f6, 5%);
+$card-gradiant: linear-gradient($secondary-color, $primary-color);
 
 /*font sizes*/
-$title-size:2.2rem;
-$secTitle-size:1.6rem;
-$tiercTitle-size:1.05rem;
-$paragraph-size:1.05rem;
+$title-size: 2.2rem;
+$secTitle-size: 1.6rem;
+$tiercTitle-size: 1.05rem;
+$paragraph-size: 1.05rem;
 
-$cardMargin:12px;
-$dishMargin:25px;
-$dishTitleMargin:20px;
+$cardMargin: 12px;
+$dishMargin: 25px;
+$dishTitleMargin: 20px;
 
 /*Box shadow*/
 $card-shadow: 3px 3px 5px rgb(202, 201, 201);
 
-$media-mobile:600px;
-$media-tablet:1099px;
-$media-desktop:1100px;
+$media-mobile: 600px;
+$media-tablet: 1099px;
+$media-desktop: 1100px;

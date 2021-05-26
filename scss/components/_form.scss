@@ -7,6 +7,8 @@
   flex-direction: column;
   margin-top: 5%;
   height: 33%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   input {
     color: darken($tertiary-color, $amount: 55);
     background-color: darken($tertiary-color, $amount: 10);

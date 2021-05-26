@@ -1,33 +1,36 @@
 .gridContainer {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 80px 2115px 80px;
+  grid-template-rows: 10vh 490vh 10vh;
   grid-template-areas:
     "head"
     "content"
     "foot";
+  @include screen-tablet {
+    grid-template-rows: 10vh 320vh 10vh;
+  }
   @include screen-desktop {
-    grid-template-rows: 80px 1200px 80px;
+    grid-template-rows: 10vh 150vh 10vh;
   }
 }
 
 .gridContainerProducts {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 80px 690px 80px;
+  grid-template-rows: 10vh 100vh 10vh;
   grid-template-areas:
     "head"
     "content"
     "foot";
   @include screen-desktop {
-    grid-template-rows: 80px 920px 80px;
+    grid-template-rows: 10vh 80vh 10vh;
   }
 }
 
 .gridContainerBasket {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 80px 1100px 80px;
+  grid-template-rows: 10vh 1100px 10vh;
   grid-template-areas:
     "head"
     "content"

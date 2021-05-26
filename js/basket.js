@@ -1,6 +1,7 @@
 //------
 const buttonBasket = document.getElementById("product__container__button--add");
 const numberBasket = document.getElementById("basketNumber");
+const buttonBuy = document.getElementById("product__container__button--buy");
 //------
 const buttonForm = document.getElementById("form__button");
 let firstName = document.getElementById("form__firstName");
@@ -26,6 +27,13 @@ numberBasket.textContent = arrayProduct.length;
 if (buttonBasket) {
   buttonBasket.addEventListener("click", () => {
     addBasket(checkId());
+  });
+}
+
+if (buttonBuy) {
+  buttonBuy.addEventListener("click", () => {
+    addBasket(checkId());
+    document.location.href = "/panier.html";
   });
 }
 
@@ -189,7 +197,7 @@ if (actUrl === "http://127.0.0.1:5500/panier.html" && arrayProduct.length > 0) {
   }
 }
 
-//Post when button "acheter" is pressed
+//---
 if (buttonForm) {
   buttonForm.addEventListener("click", (e) => {
     e.preventDefault();

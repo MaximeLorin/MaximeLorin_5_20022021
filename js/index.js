@@ -1,5 +1,3 @@
-// module.exports = createArticles;
-
 getElements();
 
 function createArticles(article) {

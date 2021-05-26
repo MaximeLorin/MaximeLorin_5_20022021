@@ -6,6 +6,8 @@
   display: flex;
   @include itemCenter;
   @include pageMargin;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   @include screen-desktop {
     margin-top: 1%;
   }

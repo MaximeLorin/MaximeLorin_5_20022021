@@ -1,8 +1,10 @@
 .product {
   background-color: $tertiary-color;
   width: 90%;
-  height: 650px;
+  height: 90%;
   margin-top: 5%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
   @include pageMargin;
   &__img {
     object-fit: cover;
@@ -69,7 +71,10 @@
   }
   @include screen-desktop {
     width: 50%;
-    height: 570px;
+    height: 80%;
     margin: auto;
+    &__img {
+      height: 65%;
+    }
   }
 }

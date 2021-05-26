@@ -1,18 +1,21 @@
-.toBasket
-{
-    position: relative;
-    #basketNumber
-    {
-        @include itemCenter;
-        position: absolute;
-        top: 15px;
-        left:-15px;
-        width: 20px;
-        height: 20px;
-        border-radius: 100%;
-        font-size: 1rem;
-        font-weight: bold;
-        background-color: $primary-color;
-        color:$tertiary-color;
+.toBasket {
+  position: relative;
+  #basketNumber {
+    @include itemCenter;
+    position: absolute;
+    top: 1.3vh;
+    left: -15px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: $primary-color;
+    color: $tertiary-color;
+  }
+  @include screen-desktop {
+    #basketNumber {
+      top: 2.5vh;
     }
+  }
 }

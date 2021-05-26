@@ -1,14 +1,17 @@
 .article {
   display: block;
   width: 90%;
-  height: 400px;
+  height: 600px;
   background-color: $tertiary-color;
   margin-top: 5%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
   @include pageMargin;
   &__img {
     object-fit: cover;
+    object-position: 50% 50%;
     width: 100%;
-    height: 50%;
+    height: 65%;
   }
   &__name {
     @include pageMargin;
@@ -26,10 +29,10 @@
     cursor: pointer;
   }
   @include screen-desktop {
-    height: 350px;
-    width: 40%;
+    height: 450px;
+    width: 35%;
     margin-top: 2%;
-    margin-right: none;
-    margin-left: none;
+    margin-right: auto;
+    margin-left: 7.5%;
   }
 }

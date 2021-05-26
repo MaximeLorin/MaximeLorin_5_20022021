@@ -1,6 +1,6 @@
 getId();
 
-function checkUrl() {
+function checkId() {
   let currentId = new URLSearchParams(window.location.search);
 
   if (currentId.has("id")) {
@@ -32,7 +32,7 @@ function createProduct(product) {
 }
 
 function getId() {
-  fetch("http://localhost:3000/api/cameras/" + checkUrl())
+  fetch("http://localhost:3000/api/cameras/" + checkId())
     .then((response) => {
       if (response.ok) {
         return response.json();
