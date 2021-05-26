@@ -1,7 +1,9 @@
 //------
 const buttonBasket = document.getElementById("product__container__button--add");
 const numberBasket = document.getElementById("basketNumber");
-const buttonBuy = document.getElementById("product__container__button--buy");
+const buttonDirectBuy = document.getElementById(
+  "product__container__button--buy"
+);
 //------
 const buttonForm = document.getElementById("form__button");
 let firstName = document.getElementById("form__firstName");
@@ -30,8 +32,8 @@ if (buttonBasket) {
   });
 }
 
-if (buttonBuy) {
-  buttonBuy.addEventListener("click", () => {
+if (buttonDirectBuy) {
+  buttonDirectBuy.addEventListener("click", () => {
     addBasket(checkId());
     document.location.href = "/panier.html";
   });
