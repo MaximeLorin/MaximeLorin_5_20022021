@@ -65,14 +65,12 @@ function sortArray(basket) {
   let basketPage = [];
   let art1 = basket[0];
   basketPage.push(art1);
-  //console.log(arrayProduct);
   for (let product in basket) {
     if (basket[product] != art1) {
       basketPage.push(basket[product]);
       art1 = basket[product];
     }
   }
-
   return basketPage;
 }
 //-----
@@ -191,9 +189,10 @@ if (actUrl === "http://127.0.0.1:5500/panier.html" && arrayProduct.length > 0) {
   }
 }
 
-//------
+//Post when button "acheter" is pressed
 if (buttonForm) {
   buttonForm.addEventListener("click", (e) => {
+    e.preventDefault();
     let toPost = {
       contact: {
         firstName: firstName.value,
