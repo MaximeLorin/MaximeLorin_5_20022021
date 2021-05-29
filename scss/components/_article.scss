@@ -6,6 +6,7 @@
   margin-top: 5%;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
+  overflow: hidden;
   @include pageMargin;
   &__img {
     object-fit: cover;
@@ -29,7 +30,7 @@
     cursor: pointer;
   }
   @include screen-desktop {
-    height: 450px;
+    height: 30%;
     width: 35%;
     margin-top: 2%;
     margin-right: auto;

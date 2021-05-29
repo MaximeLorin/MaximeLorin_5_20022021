@@ -31,19 +31,52 @@
           <h3 id="total__text">Votre commande est de:</h3>
           <h3 id="total__price"></h3>
         </div>
-        <form id="form">
+        <form id="form" action="/commande-validee.html">
           <h3 class="form__title">Entrez vos coordonnées:</h3>
           <input
             id="form__firstName"
-            type="text"
+            pattern="[^0-9]+"
             placeholder="Prénom"
+            minlength="3"
+            maxlength="10"
             required
           />
-          <input id="form__lastName" type="text" placeholder="Nom" required />
-          <input id="form__adress" type="text" placeholder="Adresse" required />
-          <input id="form__city" type="text" placeholder="Ville" required />
-          <input id="form__email" type="email" placeholder="E-mail" required />
-          <button id="form__button" type="submit" name="acheter">
+          <input
+            id="form__lastName"
+            type="text"
+            pattern="[^0-9]+"
+            placeholder="Nom"
+            minlength="3"
+            maxlength="10"
+            required
+          />
+          <input
+            id="form__adress"
+            type="text"
+            placeholder="Adresse"
+            minlength="20"
+            maxlength="60"
+            required
+          />
+          <input
+            id="form__city"
+            type="text"
+            pattern="[^0-9]+"
+            placeholder="Ville"
+            minlength="3"
+            maxlength="10"
+            required
+          />
+          <input
+            id="form__email"
+            type="email"
+            placeholder="E-mail"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            minlength="10"
+            maxlength="60"
+            required
+          />
+          <button id="form__button" type="submit" disabled="true">
             Acheter
           </button>
         </form>

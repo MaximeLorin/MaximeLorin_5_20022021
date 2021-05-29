@@ -199,10 +199,25 @@ if (actUrl === "http://127.0.0.1:5500/panier.html" && arrayProduct.length > 0) {
   }
 }
 
-//---
+function postElements(postObj) {
+  fetch("http://localhost:3000/api/cameras/order", {
+    method: "post",
+    body: JSON.stringify(postObj),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((order) => order.json())
+    .then((data) => {
+      localStorage.setItem("commande", JSON.stringify(data));
+      localStorage.setItem("id commande", JSON.stringify(data.orderId));
+    })
+    .catch(() => (document.location.href = "/404.html"));
+}
+
 if (buttonForm) {
+  if (arrayProduct.length > 0) {
+    buttonForm.disabled = !buttonForm.disabled;
+  }
   buttonForm.addEventListener("click", (e) => {
-    e.preventDefault();
     let toPost = {
       contact: {
         firstName: firstName.value,
@@ -214,26 +229,8 @@ if (buttonForm) {
       products: sortArray(arrayProduct),
     };
 
-    if (
-      firstName.value &&
-      lastName.value &&
-      adress.value &&
-      city.value &&
-      email.value &&
-      arrayProduct.length > 0
-    ) {
-      fetch("http://localhost:3000/api/cameras/order", {
-        method: "post",
-        body: JSON.stringify(toPost),
-        headers: { "Content-Type": "application/json" },
-      })
-        .then((order) => order.json())
-        .then((data) => {
-          localStorage.setItem("commande", JSON.stringify(data));
-          localStorage.setItem("id commande", JSON.stringify(data.orderId));
-          window.location.href = "/commande-validee.html";
-        })
-        .catch(() => (document.location.href = "/404.html"));
+    if (arrayProduct.length != 0) {
+      postElements(toPost);
     }
   });
 }
